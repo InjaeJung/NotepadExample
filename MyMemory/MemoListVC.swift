@@ -43,19 +43,31 @@ class MemoListVC: UITableViewController {
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 1. memolist 배열에서 선택된 행에 맞는 데이터를 꺼냄
-        let row = self.appDelegate.memoList[indexPath.row]
-        
-        // 2. 상세 화면의 인스턴스를 생성
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else {
-            return
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("세그웨이 시작")
+        if segue.identifier == "read_sg" {
+            print("세그웨이 실행 성공")
+            if let destination = segue.destination as? MemoReadVC {
+                if let selectIndex = self.tableView.indexPathForSelectedRow?.row {
+                    destination.param = self.appDelegate.memoList[selectIndex]
+                }
+            }
         }
-        
-        // 3. 값을 전달한 다음 상세화면으로 이동
-        vc.param = row
-        self.navigationController?.pushViewController(vc, animated: true)
     }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // 1. memolist 배열에서 선택된 행에 맞는 데이터를 꺼냄
+//        let row = self.appDelegate.memoList[indexPath.row]
+//
+//        // 2. 상세 화면의 인스턴스를 생성
+//        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MemoRead") as? MemoReadVC else {
+//            return
+//        }
+//
+//        // 3. 값을 전달한 다음 상세화면으로 이동
+//        vc.param = row
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     // 디바이스 스크린에 뷰 컨트롤러가 나타날 때마다 호출되는 메소드
     override func viewWillAppear(_ animated: Bool) {

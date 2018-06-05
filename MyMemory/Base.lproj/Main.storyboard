@@ -78,6 +78,7 @@
                                     <outlet property="contents" destination="mut-fZ-nq3" id="vuP-0D-dcG"/>
                                     <outlet property="regdate" destination="oDN-PC-14J" id="Gby-1l-TMT"/>
                                     <outlet property="subject" destination="cc1-F3-JtF" id="b8D-Vs-kYO"/>
+                                    <segue destination="wEe-gf-ICP" kind="show" identifier="read_sg" id="kMk-nV-VVe"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCellWithImage" rowHeight="80" id="HU8-OM-cEd" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
@@ -143,6 +144,7 @@
                                     <outlet property="img" destination="cay-4M-Z6j" id="bEm-HG-LDt"/>
                                     <outlet property="regdate" destination="btk-oh-LNd" id="H5G-WO-Vkr"/>
                                     <outlet property="subject" destination="cCD-QL-dcP" id="dxe-Ox-hzb"/>
+                                    <segue destination="wEe-gf-ICP" kind="show" identifier="read_sg" id="NPS-Bu-uo8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -158,9 +160,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="wEe-gf-ICP" kind="show" identifier="read_sg" id="d6A-Tc-FGw"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQ8-Pt-uKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,4 +300,7 @@
             <point key="canvasLocation" x="788" y="-36.431784107946029"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NPS-Bu-uo8"/>
+    </inferredMetricsTieBreakers>
 </document>
